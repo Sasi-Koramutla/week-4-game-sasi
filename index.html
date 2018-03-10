@@ -1,0 +1,257 @@
+<!--Crystal Game-->
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  </head>
+
+  <body>
+    
+    <div class="jumbotron">
+        <h1 class="text-center">
+          <strong>Crystal Collector</strong>
+        </h1>
+
+        <h5 class="text-center"> <br> You will be given a random number at the start of the game. <br> <br> There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</h5>
+        
+    </div>
+
+    <div class="container">
+      
+    
+             <strong> <div id="randomscore" class="col-md-3" style="background-color:aliceblue; height:60px;">
+              Random Target Score: </div> </strong>
+      
+         
+     <br>
+         
+    <div class="container">
+        <div class="row">
+          <div id= "red" class="col-md-1"><img src="assets\images\red.jpg" style="width:50px;height:50px;border-color:black;cursor:pointer;"></div>
+          <div id= "yellow" class="col-md-1"><img src="assets\images\yellow.jpg" style="width:50px;height:50px;border-color:black;cursor:pointer;"></div>
+          <div id= "blue" class="col-md-1"><img src="assets\images\blue.jpg" style="width:50px;height:50px;border-color:black;cursor:pointer;"></div>
+          <div id= "green" class="col-md-1"><img src="assets\images\green.jpg" style="width:50px;height:50px;border-color:black;cursor:pointer;"></div>
+         
+        </div>
+        <p></p>
+
+     
+       <strong> <div id="yourscore" class="col-md-3" style="background-color:aliceblue;height:60px;">Your Score: <br> 0</div> </strong>
+
+       <br>
+       <strong><div id=w class="col-md-3" style="background-color:aliceblue;">Wins: 0</div> </strong>
+      <strong><div id=l class="col-md-3" style="background-color:aliceblue;">Losses: 0</div> </strong> 
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    
+     var r = Math.floor((Math.random() * 12) + 1);
+     var y = Math.floor((Math.random() * 12) + 1);
+     var g = Math.floor((Math.random() * 12) + 1);
+     var b = Math.floor((Math.random() * 12) + 1);
+
+     var w = 0;
+     var l = 0;
+     var randomscore = Math.floor((Math.random() * 110) + 10);
+     var yourscore = 0;
+
+
+     console.log(r,y,g,b);
+     $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+   
+
+     $("#red").on("click", function()
+       {
+
+        yourscore += r;
+        console.log(yourscore);
+        $("#yourscore").html("Your Score: "+ "<br>" + yourscore);
+
+        if(yourscore === randomscore)
+        {
+            w++;
+            $("#w").html("Wins: " + w);
+           // $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            //$("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Won!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;            
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+        if(yourscore > randomscore)
+        {
+            l++;
+            $("#l").html("Losses: " + l);
+            //$("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            //$("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Lost!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+       });
+
+       $("#yellow").on("click", function()
+       {
+           
+        yourscore += y;
+        console.log(yourscore);
+        $("#yourscore").html("Your Score: "+ "<br>" + yourscore);
+
+        if(yourscore === randomscore)
+        {
+            w++;
+            $("#w").html("Wins: " + w);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Won!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;            
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+        if(yourscore > randomscore)
+        {
+            l++;
+            $("#l").html("Losses: " + l);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Lost!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+       });
+
+       $("#blue").on("click", function()
+       {
+           
+        yourscore += b;
+        console.log(yourscore);
+        $("#yourscore").html("Your Score: "+ "<br>" + yourscore);
+
+        if(yourscore === randomscore)
+        {
+            w++;
+            $("#w").html("Wins: " + w);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Won!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;            
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+        if(yourscore > randomscore)
+        {
+            l++;
+            $("#l").html("Losses: " + l);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Lost!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+       });
+
+       $("#green").on("click", function()
+       {
+
+        yourscore += g;
+        console.log(yourscore);
+        $("#yourscore").html("Your Score: "+ "<br>" + yourscore);
+
+        if(yourscore === randomscore)
+        {
+            w++;
+            $("#w").html("Wins: " + w);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Won!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;            
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+        if(yourscore > randomscore)
+        {
+            l++;
+            $("#l").html("Losses: " + l);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+            alert("You Lost!");
+            randomscore = Math.floor((Math.random() * 110) + 10);
+            yourscore = 0;
+            r = Math.floor((Math.random() * 12) + 1);
+            y = Math.floor((Math.random() * 12) + 1);
+            g = Math.floor((Math.random() * 12) + 1);
+            b = Math.floor((Math.random() * 12) + 1);
+            console.log(r,y,g,b);
+            $("#randomscore").html("Random Target Score: " + "<br>" + randomscore);
+            $("#yourscore").html("Your Score: "+  "<br>" + yourscore);
+        }
+
+       });
+
+
+    </script>
+
+  </body>
+
+</html>
